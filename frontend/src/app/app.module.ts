@@ -10,6 +10,7 @@ import { NotificationItemComponent } from './components/notification-item/notifi
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { HeaderComponent } from './components/layout/header/header.component';
+import { ApiComponent } from './components/pages/api/api.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeaderComponent } from './components/layout/header/header.component';
     NotificationItemComponent,
     NotificationsComponent,
     AboutComponent,
-    HeaderComponent
+    HeaderComponent,
+    ApiComponent
   ],
   imports: [
     BrowserModule,

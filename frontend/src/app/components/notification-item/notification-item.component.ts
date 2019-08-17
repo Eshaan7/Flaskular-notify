@@ -21,6 +21,7 @@ export class NotificationItemComponent implements OnInit {
   }
 
   // Set Dynamic Classes
+  /*
   setClasses() {
     let classes = {
       "notif-class": true
@@ -28,6 +29,8 @@ export class NotificationItemComponent implements OnInit {
 
     return classes;
   }
+
+  */
 
   onEdit(notif) {
     // Edit on server; emit upwards

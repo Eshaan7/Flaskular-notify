@@ -1,10 +1,14 @@
-<div [ngClass]="setClasses()">
-    <p>
-      <label for="{{ notif.id }}">
-        {{ notif.title }} | {{ notif.body }} | {{ notif.updated_on }}
-      </label>
-      <button (click)="onEdit(notif)" class="edit">edit</button>
-      <button (click)="onDelete(notif)" class="del">X</button>
-    </p>
+<div class="content-section">
+    <div class="float-right">
+        <!--(click)="onEdit(notif)"-->
+        <a  onclick="javascript:alert('Edit: Coming soon');" class="btn"><i class="fas fa-pen fa-xs"></i></a> 
+        <a (click)="onDelete(notif)" class="btn"><i class="fas fa-trash-alt fa-xs"></i></a>
+    </div>
+  <h3 class="title-heading">{{ notif.title }}</h3>
+  <div class="float-right">
+    <small>Notification #{{ notif.id }} - posted at <code>{{ notif.updated_on }}</code></small>
   </div>
-  
+  <br/>
+  <hr/>
+  <p>{{ notif.body }}</p>
+</div>

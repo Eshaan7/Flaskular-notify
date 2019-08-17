@@ -11,7 +11,7 @@ class NotificationSchema(BaseSchema):
 	id = ma.Integer(dump_only=True)
 	title = ma.String(required=True)
 	body = ma.String(required=True)
-	updated_on = ma.String(required=False)
+	updated_on = ma.DateTime(format='%Y-%m-%d %I:%M %p') # Using IST
 	issuer = ma.Nested(UserSchema, many=False, only=('id', 'username'))
 
 
