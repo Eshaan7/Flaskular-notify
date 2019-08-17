@@ -1,10 +1,9 @@
 <div [ngClass]="setClasses()">
     <p>
-      <button id="{{ todo.id }}" (click)="onEdit(notif)" class="edit">edit</button>
-      <label for="{{ todo.id }}">
-        {{ todo.title }} | {{ todo.body }} | {{ todo.created_on }}
+      <label for="{{ notif.id }}">
+        {{ notif.title }} | {{ notif.body }} | {{ notif.updated_on }}
       </label>
-
+      <button (click)="onEdit(notif)" class="edit">edit</button>
       <button (click)="onDelete(notif)" class="del">X</button>
     </p>
   </div>

@@ -36,7 +36,7 @@ export class NotificationsComponent implements OnInit {
 
   }
 
-  addTodo(notif:Notification) {
+  addNotif(notif:Notification) {
     this.notifService.addNotification(notif).subscribe(notif => {
       this.notifs.push(notif);
     });

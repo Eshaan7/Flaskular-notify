@@ -20,7 +20,7 @@ export class AddNotificationItemComponent implements OnInit {
   onSubmit() {
     const notif = {
       title: this.title,
-      body: this.body,
+      body: this.body
     }
 
     // Add on server; emit upwards

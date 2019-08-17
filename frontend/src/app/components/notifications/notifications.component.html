@@ -1,8 +1,9 @@
-<app-add-notification-item (addTodo)="addNotif($event)"></app-add-notification-item>
+<app-add-notification-item (addNotif)="addNotif($event)"></app-add-notification-item>
 
 <app-notification-item 
   *ngFor="let notif of notifs" 
-  [editNotif]="editNotif($event)"
+  [notif]="notif"
+  (editNotif)="editNotif($event)"
   (deleteNotif)="deleteNotif($event)"
   >
 </app-notification-item>

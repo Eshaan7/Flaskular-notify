@@ -6,11 +6,12 @@ from .models import Notification
 class NotificationSchema(BaseSchema):
 	class Meta:
 		model = Notification
-		fields = ('id', 'issuer', 'title', 'body')
+		fields = ('id', 'issuer', 'title', 'body', 'updated_on')
 
 	id = ma.Integer(dump_only=True)
 	title = ma.String(required=True)
 	body = ma.String(required=True)
+	updated_on = ma.String(required=False)
 	issuer = ma.Nested(UserSchema, many=False, only=('id', 'username'))
 
 

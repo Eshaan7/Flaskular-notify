@@ -6,7 +6,7 @@ import { Notification } from '../models/Notification';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer'
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjU4NzYxNTcsIm5iZiI6MTU2NTg3NjE1NywianRpIjoiMDQ2ZjYyMWMtMDQxYi00NWI0LThkZWEtNGFhZGJkN2I2NGIwIiwiZXhwIjoxNTk3NDEyMTU3LCJpZGVudGl0eSI6MTQsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.XVlS4NWXHuXGaqC9WLwL7lMuV5_iQwhssb4W-BaHiOc'
   })
 }
 
@@ -28,18 +28,19 @@ export class NotificationService {
 
   // Delete Notification
   deleteNotification(notif:Notification):Observable<Notification> {
-    const url = `${this.FlaskApiUrl}/${notif.id}/`;
+    const url = `${this.FlaskApiUrl}/notifications/${notif.id}`;
     return this.http.delete<Notification>(url, httpOptions);
   }
 
   // Add Notification
   addNotification(notif:Notification):Observable<Notification> {
-    return this.http.post<Notification>(this.FlaskApiUrl, notif, httpOptions);
+    const url = `${this.FlaskApiUrl}/notifications/`;
+    return this.http.post<Notification>(url, notif, httpOptions);
   }
 
   // Edit Notification
   editNotification(notif:Notification):Observable<any> {
-    const url = `${this.FlaskApiUrl}/${notif.id}`;
+    const url = `${this.FlaskApiUrl}/notifications/${notif.id}`;
     return this.http.put(url, notif, httpOptions);
 
   }
