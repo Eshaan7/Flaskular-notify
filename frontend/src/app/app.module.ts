@@ -3,10 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddNotificationItemComponent } from './components/add-notification-item/add-notification-item.component';
+import { NotificationItemComponent } from './components/notification-item/notification-item.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { AboutComponent } from './components/pages/about/about/about.component';
+import { HeaderComponent } from './components/layout/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddNotificationItemComponent,
+    NotificationItemComponent,
+    NotificationsComponent,
+    AboutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
