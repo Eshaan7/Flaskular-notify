@@ -9,7 +9,6 @@ import { AddNotificationItemComponent } from './components/add-notification-item
 import { NotificationItemComponent } from './components/notification-item/notification-item.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { AboutComponent } from './components/pages/about/about.component';
-import { HeaderComponent } from './components/layout/header/header.component';
 import { ApiComponent } from './components/pages/api/api.component';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { ApiComponent } from './components/pages/api/api.component';
     NotificationItemComponent,
     NotificationsComponent,
     AboutComponent,
-    HeaderComponent,
     ApiComponent
   ],
   imports: [
