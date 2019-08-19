@@ -10,7 +10,7 @@ class Notifications_api(Resource):
     @jwt_required
     def get(self):
         try:
-            all_notifs = Notification.query.all()
+            all_notifs = Notification.query.order_by(Notification.updated_on.desc()).all()
             return jsonify(notifications_schema.dump(all_notifs).data)
         except Exception as e:
             return make_response(jsonify({'meta': {'code': 404, 'error': str(e) }}), 404)
@@ -48,9 +48,9 @@ class Notification_api(Resource):
         notif = Notification.query.get_or_404(num)
 
         if not current_user_id == notif.issuer_id:
-            return make_response(jsonify({'meta': {
+            return make_response(jsonify({'error': {
             'code': 403, 
-            'error': "You are not allowed to edit the particular notification."
+            'msg': "You are not allowed to edit the particular notification."
              }
             }), 403)
 
@@ -67,9 +67,9 @@ class Notification_api(Resource):
         notif = Notification.query.get_or_404(num)
 
         if not current_user_id == notif.issuer_id:
-            return make_response(jsonify({'meta': {
+            return make_response(jsonify({'error': {
             'code': 403, 
-            'error': "You are not allowed to delete the particular notification."
+            'msg': "You are not allowed to delete the particular notification."
              }
             }), 403)
         
