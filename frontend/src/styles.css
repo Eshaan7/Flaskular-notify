@@ -7,8 +7,8 @@ body {
   color: #C9D3E7 !important;
   margin-top: 5rem;
   font-family: "Raleway", Arial, Helvetica, sans-serif;
-  line-height: 1.65;
-  font-size: 12pt;
+  line-height: 1.5;
+  font-size: 11pt;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,6 +60,10 @@ a:hover, .btn-hover-red:hover {
 
 /* custom bootstrap */
 
+.container {
+  max-width: 1440px;
+}
+
 .content-section, .jumbotron {
   background: rgba(35,36,39,0.95);
   padding: 10px 20px;
@@ -72,7 +76,8 @@ a:hover, .btn-hover-red:hover {
 }
 
 .form-control {
-  width: 400px !important;
+  width: 75% !important;
+  margin-bottom: 5px;
 }
 
 @media screen and (max-width: 1024px) {
