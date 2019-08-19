@@ -12,34 +12,61 @@ import { NotificationService } from '../../services/notification.service';
 export class NotificationsComponent implements OnInit {
 
   notifs:Notification[];
+  error: any;
 
   constructor(private notifService:NotificationService) { }
 
   ngOnInit() {
-    this.notifService.getNotifications().subscribe(notifs => {
-      this.notifs = notifs;
-    });
+    this.notifService.getNotifications().subscribe(
+      notifs => {
+        this.notifs = notifs;
+      }, 
+      error => this.error = error);
   }
 
   deleteNotif(notif:Notification) {
-    // Remove From UI
-    this.notifs = this.notifs.filter(n => n.id !== notif.id);
     // Remove from server
-    this.notifService.deleteNotification(notif).subscribe();
+    this.notifService.deleteNotification(notif).subscribe(
+      notif => {
+        // Remove From UI
+        this.notifs = this.notifs.filter(n => n.id !== notif.id);
+      }, 
+      error => {
+        const error_obj = {
+          "class_category": "danger",
+          "class_icon": "exclamation-triangle",
+          "message": "You are not allowed to delete the particular notification."
+        }
+        this.error = error_obj; /* exclamation-triangle, check-circle, info-circle */
+      }
+    );
   }
 
   editNotif(notif:Notification) {
     // delete, add, reload ?
-    this.notifs = this.notifs.filter(n => n.id !== notif.id);
     // Remove from server
-    this.notifService.editNotification(notif).subscribe();
-
+    this.notifService.editNotification(notif).subscribe(
+      notif => {
+        this.notifs = this.notifs.filter(n => n.id !== notif.id);
+        this.notifs.unshift(notif);
+      }, 
+      error => {
+        this.error = error;
+        throw error;
+      }
+    );
   }
 
   addNotif(notif:Notification) {
-    this.notifService.addNotification(notif).subscribe(notif => {
-      this.notifs.push(notif);
-    });
+    this.notifService.addNotification(notif).subscribe(
+      notif => {
+        this.notifs.unshift(notif);
+      }, 
+      error => {
+        this.error = error;
+        throw error;
+      }
+    );
   }
 
 }

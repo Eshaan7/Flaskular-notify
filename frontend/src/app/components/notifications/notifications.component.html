@@ -1,12 +1,33 @@
 
-<app-add-notification-item (addNotif)="addNotif($event)"></app-add-notification-item> 
+<div class="row">
+<div class="col-6">
+    <div *ngIf="(error)" class="content-section">
+        <div class="alert alert-{{ error.class_category }}">
+                <i class="fas fa-{{ error.class_icon }}"></i>
+                {{ error.message }}
+        </div>
+    </div>
+</div>
+</div>
 
-<div class="content-section">
-    <app-notification-item 
-        *ngFor="let notif of notifs" 
-        [notif]="notif"
-        (editNotif)="editNotif($event)"
-        (deleteNotif)="deleteNotif($event)"
-        >
-    </app-notification-item>
+<div class="row">
+  <div class="col-4">
+    <div class="content-section">
+        <h4 class="title-heading">New Notification</h4>
+        <app-add-notification-item (addNotif)="addNotif($event)"></app-add-notification-item> 
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="content-section">
+        <app-notification-item 
+            *ngFor="let notif of notifs" 
+            [notif]="notif"
+            (editNotif)="editNotif($event)"
+            (deleteNotif)="deleteNotif($event)"
+            >
+        </app-notification-item>
+    </div>
+  </div>
+
 </div>

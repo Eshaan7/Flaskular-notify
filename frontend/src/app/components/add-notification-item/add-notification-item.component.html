@@ -3,9 +3,9 @@
 
 <form class="form" (ngSubmit)="onSubmit()">
     
-    <input type="text" name="title" [(ngModel)]="title" placeholder="Add Title...">
-    <input type="text" name="body" [(ngModel)]="body" placeholder="Add Body...">
-    <input type="submit" value="Submit" class="btn btn-dark btn-hover-red">
+    <input class="form-control" type="text" name="title" [(ngModel)]="title" placeholder="Add Title...">
+    <textarea class="form-control" type="text" name="body" [(ngModel)]="body" placeholder="Add Body..."></textarea>
+    <input class="form-control" type="submit" value="Submit" class="btn btn-dark btn-hover-red">
   
 </form>
 

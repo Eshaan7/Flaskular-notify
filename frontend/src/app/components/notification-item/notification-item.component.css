@@ -19,4 +19,14 @@
     float: right;
 }
 
+.modal-content {
+    background: rgba(35,36,39,0.95);
+    padding: 10px 20px;
+    color: #C9D3E7;
+    border: 1px solid #2c2f36;
+    box-shadow: 0 9px 18px 0 rgba(0,0,0,0.25);
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
   

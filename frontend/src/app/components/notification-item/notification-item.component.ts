@@ -12,7 +12,7 @@ import { NotificationService } from '../../services/notification.service';
 
 export class NotificationItemComponent implements OnInit {
   @Input() notif: Notification;
-  @Output() editNotif: EventEmitter<Notification> = new EventEmitter();
+  @Output() editNotif: EventEmitter<any> = new EventEmitter();
   @Output() deleteNotif: EventEmitter<Notification> = new EventEmitter();
 
   constructor(private notifService:NotificationService) { }
@@ -32,9 +32,17 @@ export class NotificationItemComponent implements OnInit {
 
   */
 
+  title:string;
+  body:string;
+
   onEdit(notif) {
+    const notif_modified = {
+      id: notif.id,
+      title: this.title,
+      body: this.body
+    }
     // Edit on server; emit upwards
-    this.editNotif.emit(notif);
+    this.editNotif.emit(notif_modified);
   }
 
   onDelete(notif) {
