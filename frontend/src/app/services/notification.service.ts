@@ -7,7 +7,7 @@ import { Notification } from '../models/Notification';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjU4NzYxNTcsIm5iZiI6MTU2NTg3NjE1NywianRpIjoiMDQ2ZjYyMWMtMDQxYi00NWI0LThkZWEtNGFhZGJkN2I2NGIwIiwiZXhwIjoxNTk3NDEyMTU3LCJpZGVudGl0eSI6MTQsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.XVlS4NWXHuXGaqC9WLwL7lMuV5_iQwhssb4W-BaHiOc'
+    //'Authorization': `Bearer ${localStorage.getItem('token')}`
   })
 }
 
