@@ -51,8 +51,12 @@ export class NotificationsComponent implements OnInit {
         this.notifs.unshift(notif);
       }, 
       error => {
-        this.error = error;
-        throw error;
+        const error_obj = {
+          "class_category": "danger",
+          "class_icon": "exclamation-triangle",
+          "message": "You are not allowed to edit the particular notification."
+        }
+        this.error = error_obj; /* exclamation-triangle, check-circle, info-circle */
       }
     );
   }
